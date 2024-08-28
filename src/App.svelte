@@ -39,16 +39,17 @@
 			</tr>
 		</thead>
 		<tbody>
+      <!-- Add id if you want to shuffle placeholder also -->
 			{#each names as { firstName, lastName, movies, age }, index (firstName)}
-            	<tr>
-            		<td>{index + 1}</td>
-            		<td>{firstName}</td>
-            		<td>{lastName}</td>
-            		<td>{movies}</td>
-            		<td>{age}</td>
-            		<td><input placeholder="Table placeholder"></td> <!-- Static placeholder -->
-            	</tr>
-            {/each}
+      	<tr>
+      		<td>{index + 1}</td>
+      		<td>{firstName}</td>
+      		<td>{lastName}</td>
+      		<td>{movies}</td>
+      		<td>{age}</td>
+      		<td><input placeholder="Table placeholder"></td> <!-- Static placeholder -->
+      	</tr>
+      {/each}
 		</tbody>
 	</table>
 	<button on:click={handleShuffle1} class="shuffle-button">Shuffle</button>
