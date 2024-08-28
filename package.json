@@ -19,6 +19,7 @@
     "svelte": "^3.55.0"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
     "sirv-cli": "^2.0.0"
   }
 }
