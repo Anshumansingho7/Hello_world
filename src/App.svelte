@@ -1,81 +1,99 @@
 <script>
 	// Defining a constant 'name' with the value 'Anshuman'
 	const name = 'Anshuman';
-	
-	// Defining a constant 'channel' with an HTML paragraph element containing 'Anshuman'
+
+	// Defining a constant 'channel' that contains HTML code for a paragraph element with the text 'Anshuman'
 	const channel = '<p>Anshuman</p>';
-	
-	// Defining a constant 'hack' with a potentially malicious anchor element
-	// that triggers an alert when clicked
+
+	// Defining a constant 'hack' that contains an anchor element with an onclick event triggering an alert
+	// This is an example of potentially dangerous code, often referred to as a security risk (like XSS)
 	const hack = `<a href="#" onclick="alert('You have been Hacked!')">Win a prize!</a>`;
 
-	// Initializing a variable 'count' to 0
+	// Defining a constant 'headingId' to hold the id value for an HTML element
+	const headingId = 'heading';
+
+	// Defining a constant 'disabled' which will disable the button when bound to it
+	const disabled = true;
+
+	// Initializing a variable 'count' with an initial value of 0
 	let count = 0;
 
-	// Defining a function 'increase' to increment the count by 1
+	// Defining a function 'increase' that increments the value of 'count' by 1
 	const increase = () => {
 		count += 1;
 	};
-	
-	// Defining a function 'decrease' to decrement the count by 1
+
+	// Defining a function 'decrease' that decrements the value of 'count' by 1
 	const decrease = () => {
 		count -= 1;
 	};
 </script>
 
 <main>
-	<!-- Displaying a heading with a greeting and the result of 2+2 -->
+	<!-- Displaying a heading that includes the 'name' and the result of the expression 2 + 2 -->
 	<h1>Hello {name} { 2 + 2 }</h1>
 
-	<!-- Rendering the 'channel' constant as HTML content -->
+	<!-- Rendering the HTML content stored in 'channel' using the {@html} directive -->
 	<div>{@html channel}</div>
 
-	<!-- Rendering the 'hack' constant as HTML content (be cautious with this) -->
+	<!-- Rendering the HTML content stored in 'hack'; this will create a clickable link that triggers an alert -->
 	<div>{@html hack}</div>
 
-	<!-- Displaying the current value of 'count' and providing buttons to increase/decrease the count -->
+	<!-- Adding an h2 element with an id assigned from the 'headingId' constant -->
+	<h2 id={headingId}>This is a heading</h2>
+
+	<!-- Creating a button element with the 'disabled' attribute bound to the 'disabled' constant -->
+	<button {disabled}>Bind</button>
+
+	<!-- Creating a section that displays the current value of 'count' and two buttons to change the value -->
 	<div>
+		<!-- Displaying the current value of 'count' inside an h2 element -->
 		<h2>Count: {count}</h2>
+
+		<!-- Creating a button that calls the 'increase' function when clicked -->
 		<button on:click={increase}>Increase</button>
+
+		<!-- Creating a button that calls the 'decrease' function when clicked -->
 		<button on:click={decrease}>Decrease</button>
 	</div>
 </main>
 
 <style>
-	/* Styling for the main container */
+	/* Styling for the main container, centers the content and restricts the width */
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+		text-align: center; /* Centers the text horizontally */
+		padding: 1em; /* Adds padding inside the container */
+		max-width: 240px; /* Sets the maximum width of the container */
+		margin: 0 auto; /* Centers the container horizontally on the page */
 	}
 
-	/* Styling for the h1 heading */
+	/* Styling for the h1 heading element */
 	h1 {
-		color: #ff3e00; /* Orange color for the text */
-		text-transform: uppercase; /* Uppercase text */
-		font-size: 4em; /* Large font size */
-		font-weight: 100; /* Light font weight */
+		color: #ff3e00; /* Sets the text color to orange */
+		text-transform: uppercase; /* Converts the text to uppercase */
+		font-size: 4em; /* Sets a large font size */
+		font-weight: 100; /* Applies a light font weight */
 	}
 
-	/* Styling for the h2 heading */
+	/* Styling for the h2 heading elements */
 	h2 {
-		margin: 1em 0; /* Margin around the heading */
-		font-size: 2em; /* Medium font size */
+		margin: 1em 0; /* Adds vertical margin around the element */
+		font-size: 2em; /* Sets a medium font size */
 	}
 
-	/* Styling for the buttons */
+	/* Styling for button elements */
 	button {
-		font-size: 1em; /* Medium font size */
-		margin: 0.5em; /* Small margin around the button */
-		padding: 0.5em 1em; /* Padding inside the button */
-		cursor: pointer; /* Pointer cursor on hover */
+		font-size: 1em; /* Sets a medium font size for the button text */
+		margin: 0.5em; /* Adds margin around the button */
+		padding: 0.5em 1em; /* Adds padding inside the button */
+		cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
 	}
 
-	/* Responsive styling: When the screen width is 640px or more */
+	/* Media query for screens wider than 640px */
 	@media (min-width: 640px) {
+		/* Removes the max-width restriction on the main container for larger screens */
 		main {
-			max-width: none; /* Remove the max-width restriction */
+			max-width: none;
 		}
 	}
 </style>
