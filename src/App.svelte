@@ -15,6 +15,9 @@
 	// Defining a constant 'disabled' which will disable the button when bound to it
 	const disabled = true;
 
+	// Defining a constant 'isPromoted' to control conditional styling for a heading element
+	const isPromoted = true;
+
 	// Initializing a variable 'count' with an initial value of 0
 	let count = 0;
 
@@ -31,7 +34,7 @@
 
 <main>
 	<!-- Displaying a heading that includes the 'name' and the result of the expression 2 + 2 -->
-	<h1>Hello {name} { 2 + 2 }</h1>
+	<h1 class="underline">Hello {name} { 2 + 2 }</h1>
 
 	<!-- Rendering the HTML content stored in 'channel' using the {@html} directive -->
 	<div>{@html channel}</div>
@@ -41,6 +44,9 @@
 
 	<!-- Adding an h2 element with an id assigned from the 'headingId' constant -->
 	<h2 id={headingId}>This is a heading</h2>
+
+	<!-- Adding another h2 element with conditional styling based on the 'isPromoted' constant class applied if is promoted is true-->
+	<h2 class:promoted={isPromoted}>This is a heading</h2>
 
 	<!-- Creating a button element with the 'disabled' attribute bound to the 'disabled' constant -->
 	<button {disabled}>Bind</button>
@@ -59,6 +65,16 @@
 </main>
 
 <style>
+	/* Styling for the underline class */
+	.underline {
+		text-decoration: underline; /* Underlines the text */
+	}
+
+	/* Styling for the promoted class */
+	.promoted {
+		color: rgb(5, 68, 68); /* Sets the text color to a specific shade of green */
+	}
+
 	/* Styling for the main container, centers the content and restricts the width */
 	main {
 		text-align: center; /* Centers the text horizontally */
